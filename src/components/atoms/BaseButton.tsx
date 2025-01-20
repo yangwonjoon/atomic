@@ -7,12 +7,7 @@ interface BaseButtonProps {
   className?: string;
 }
 
-const BaseButton = ({
-  type = "button",
-  onClick,
-  children,
-  className,
-}: BaseButtonProps) => {
+const BaseButton = ({ type = "button", onClick, children, className }: BaseButtonProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     event.preventDefault();

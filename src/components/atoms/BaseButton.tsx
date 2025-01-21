@@ -1,21 +1,16 @@
 "use client";
 
+import { ReactNode } from "react";
+
 interface BaseButtonProps {
-  type?: "button" | "reset" | "submit";
-  onClick?: () => void;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-const BaseButton = ({ type = "button", onClick, children, className }: BaseButtonProps) => {
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    event.preventDefault();
-    onClick?.();
-  };
-
+const BaseButton = ({ children, className, onClick }: BaseButtonProps) => {
   return (
-    <button type={type} onClick={handleClick} className={className}>
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   );
